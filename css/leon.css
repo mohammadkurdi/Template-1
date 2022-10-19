@@ -1,3 +1,13 @@
+/* Start variables */
+:root {
+    --main-color: #031413;
+    --secondary-color: #2c4755;
+    --section-padding: 60px;
+    --section-background: #f6f6f6;
+    --font-color: #777;
+}
+/* End variables */
+
 /*Start Global rules*/
 * {
     -webkit-box-sizing: border-box;
@@ -25,8 +35,9 @@ body {
 
 /*small*/
 
+
 @media (min-width: 768px) {
-    .container{
+    .container { 
         width: 750px;
     }
 }
@@ -34,18 +45,46 @@ body {
 /*Medium*/
 
 @media (min-width: 992px) {
-    .container{
+    .container { 
         width: 970px;
     }
 }
 
 /*Large*/
 @media (min-width: 1200px) {
-    .container{
+    .container {
         width: 1170px;
     }
 }
 /* End Global Rules */
+
+
+/* Start components */
+.special-heading {
+    color: #ebeced;
+    font-size: 100px;
+    text-align: center;
+    font-weight: 800;
+    letter-spacing: -3px;
+    margin: 0;
+}
+
+.special-heading + p {
+    margin: -30px 0 0;
+    font-size: 20px;
+    text-align: center;
+    color: #797979;
+}
+
+@media (max-width:767) {
+    .special-heading {
+        font-size: 60px;
+    }
+    .special-heading + p {
+        margin-top: -20px;
+    }
+}
+/* End components */
 
 /* Start Header */
 .header {
@@ -99,12 +138,13 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
-    background-color: #f6f6f6;
+    background-color: var(--section-background);
     position: absolute;
     right: 0;
     min-width: 200px;
     top: calc(100% + 15px);
     display: none;
+    z-index: 1;
 }
 
 .header .links ul::before {
@@ -139,3 +179,238 @@ body {
 
 
 /* End Header */
+
+/* Start landing section  */
+.landing {
+    background-image: url(../images/landing.jpg);
+    background-size: cover;
+    height: calc(100vh - 64px);
+    position: relative;
+    width: 100%;
+}
+
+.landing .intro-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    max-width: 100%;
+}
+
+.landing .intro-text h1 {
+    margin: 0;
+    font-weight: bold;
+    font-size: 50px;
+    color: var(--main-color);
+}
+
+.landing .intro-text p {
+    font-size: 19px;
+    line-height: 1.8;
+}
+/* End landing section  */
+
+/* Start features section  */
+.features   {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: var(--section-background);
+}
+
+.features .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+
+.features .container .feat {
+    padding: 20px;
+    text-align: center;
+}
+
+.features .container .feat i {
+    color: var(--main-color);
+}
+
+.features .container .feat h3 {
+    font-weight: 800;
+    margin: 30px 0;
+}
+
+.features .container .feat p {
+    line-height: 1.8;
+    color: var(--font-color);
+
+
+    font-size: 17px;
+}
+/* End features section  */
+
+/* Start services section  */
+.services {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+
+.services .services-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    grid-gap: 30px;
+    margin-top: 100px;
+}
+
+.services .services-content .srv {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 767px) {
+    .services .services-content .srv {
+        flex-direction: column;
+        text-align: center;
+
+}
+}
+
+.services .services-content .srv i {
+    color: rgb(72, 95, 138);
+    flex-basis: 60px;
+}
+
+.services .services-content .srv .text {
+    flex: 1;
+}
+
+.services .services-content .srv .text h3 {
+    margin: 0 0 20px;
+}
+
+.services .services-content .srv .text p {
+    color: var(--font-color);
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.services .services-content .image {
+    text-align: center;
+    position: relative;
+}
+
+.services .services-content .image::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    background-color: var(--secondary-color);
+    width: 80px;
+    height: calc(100% + 100px);
+    top: -50px;
+    z-index: -1;
+    right: 25px;
+
+}
+
+.services .services-content .image img {
+    width: 240px;
+    height: 340px;
+}
+
+@media (max-width: 1199px) {
+    .image-column {
+        display: none;
+    }
+}
+/* End services section  */
+
+/* Start portfolio section  */
+.portfolio {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: var(--section-background);
+}
+
+.portfolio .portfolio-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    grid-gap: 30px;
+    margin-top: 80px
+}
+
+.portfolio .portfolio-content .card {
+    background-color: white;
+
+}  
+
+.portfolio .portfolio-content .card img {
+    max-width: 100%;
+}
+
+.portfolio .portfolio-content .card .info {
+    padding: 20px;
+}
+
+.portfolio .portfolio-content .card .info h3 {
+    margin: 0;
+}
+
+.portfolio .portfolio-content .card .info p {
+    color: var(--font-color);
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+
+/* End services section  */
+
+/* Start about section  */
+.about {
+    padding-top: var(--section-padding);
+    padding-bottom: calc(var(--section-padding) + 60px);
+}
+
+.about-content {
+    margin-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.about .about-content .image {
+    position: relative;
+    width: 250px;
+    height: 375px;
+}
+
+.about .about-content .image img {
+    max-width: 100%;
+}
+
+.about .about-content .image::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 300px;
+    border-left: 80px solid rgb(72, 95, 138);
+    border-bottom: 80px solid rgb(72, 95, 138);
+    z-index: -1;
+    right: -150px;
+    top: -40px;
+}
+
+.about .about-content .image::before {
+    content: "";
+    position: absolute;
+    background-color: #ebeced;
+    width: 100px;
+    height: calc(100% + 80px);
+    top: -40px;
+    left: -20px;
+    z-index: -1;
+}
+
+.about .about-content .text {
+    flex-basis: calc(100% - 500px);
+    flex
+}
+/* End about section  */
